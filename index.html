@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7a160d">
+<title>देवरुखकर बंधु उत्कर्ष मंडळ</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+html,body{margin:0;height:100%;background:#7a160d;overflow:hidden}
+#app{position:fixed;inset:0;width:100%;height:100%;border:0;background:#f4f6f8}
+#sp{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,#7a160d,#b5402a 60%,#d9822b);color:#fff;font-family:"Noto Sans Devanagari",Arial,sans-serif;text-align:center;transition:opacity .4s;z-index:2}
+#sp img{width:120px;height:120px;border-radius:50%;box-shadow:0 0 0 6px rgba(255,255,255,.12);margin:14px 0}
+#sp b{font-size:23px}#sp small{opacity:.9;margin-top:6px}
+</style>
+</head>
+<body>
+<div id="sp"><div style="letter-spacing:2px">॥ श्री ॥</div><img src="icon-512.png" alt=""><b>देवरुखकर बंधु उत्कर्ष मंडळ</b><small>एकत्र येऊ, उत्कर्ष साधू…</small></div>
+<iframe id="app" allow="clipboard-write; web-share" title="देवरुखकर मंडळ ॲप"></iframe>
+<script>
+/* ⬇️ फक्त ही एक ओळ बदला: ॲपची लिंक (Apps Script Web App ची /exec ने संपणारी लिंक) */
+const APP_URL = "PASTE_YOUR_EXEC_URL_HERE";
+
+const f=document.getElementById('app'),sp=document.getElementById('sp');
+if(APP_URL.indexOf('script.google.com')<0){sp.innerHTML='<b>⚠️ index.html मध्ये APP_URL भरा</b>';}
+else{f.src=APP_URL;f.addEventListener('load',()=>setTimeout(()=>{sp.style.opacity=0;setTimeout(()=>sp.remove(),450);},700));setTimeout(()=>{if(sp.parentNode){sp.style.opacity=0;setTimeout(()=>sp.remove(),450);}},9000);}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
